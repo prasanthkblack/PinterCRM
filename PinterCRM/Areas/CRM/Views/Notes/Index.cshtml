@@ -1,0 +1,82 @@
+﻿@model IEnumerable<PinterCRM.Areas.CRM.Models.Note>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/CRM/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Note_Owner_ID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Note_Title)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Note_Content)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Parent_ID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Created_by_ID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Modified_by_ID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Created_Time)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Modified_Time)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Description)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Note_Owner_ID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Note_Title)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Note_Content)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Parent_ID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Created_by_ID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Modified_by_ID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Created_Time)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Modified_Time)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Description)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Note_ID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Note_ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Note_ID })
+        </td>
+    </tr>
+}
+
+</table>

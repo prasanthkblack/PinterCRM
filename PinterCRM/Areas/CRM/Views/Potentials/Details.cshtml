@@ -1,0 +1,147 @@
+﻿@model PinterCRM.Areas.CRM.Models.Potential
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/CRM/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Potential</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Deal_Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Deal_Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Deal_Owner_ID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Deal_Owner_ID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Created_by_ID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Created_by_ID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Modified_by_ID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Modified_by_ID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Created_Time)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Created_Time)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Modified_Time)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Modified_Time)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Amount)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Amount)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Closing_Date)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Closing_Date)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Type)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Type)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Stage)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Stage)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Probability____)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Probability____)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Sales_Cycle_Duration)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Sales_Cycle_Duration)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Overall_Sales_Duration)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Overall_Sales_Duration)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Expected_Revenue)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Expected_Revenue)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Contact_ID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Contact_ID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Account.Account_Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Account.Account_Name)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Deal_ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

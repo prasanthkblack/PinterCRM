@@ -1,0 +1,91 @@
+﻿@model PinterCRM.Areas.CRM.Models.Note
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/CRM/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Note</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Note_Owner_ID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Note_Owner_ID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Note_Title)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Note_Title)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Note_Content)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Note_Content)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Parent_ID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Parent_ID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Created_by_ID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Created_by_ID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Modified_by_ID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Modified_by_ID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Created_Time)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Created_Time)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Modified_Time)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Modified_Time)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Note_ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

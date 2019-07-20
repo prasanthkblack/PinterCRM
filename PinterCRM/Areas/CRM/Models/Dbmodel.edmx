@@ -1,0 +1,857 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="crmModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Accounts">
+          <Key>
+            <PropertyRef Name="Account ID" />
+          </Key>
+          <Property Name="Account ID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Account Name" Type="nvarchar" MaxLength="255" />
+          <Property Name="Phone" Type="nvarchar" MaxLength="255" />
+          <Property Name="Account Type" Type="nvarchar" MaxLength="255" />
+          <Property Name="Ownership" Type="nvarchar" MaxLength="255" />
+          <Property Name="Industry" Type="nvarchar" MaxLength="255" />
+          <Property Name="Employees" Type="float" />
+          <Property Name="Annual Revenue" Type="float" />
+          <Property Name="Billing Street" Type="nvarchar" MaxLength="255" />
+          <Property Name="Billing City" Type="nvarchar" MaxLength="255" />
+          <Property Name="Billing Country" Type="nvarchar" MaxLength="255" />
+          <Property Name="Billing State" Type="nvarchar" MaxLength="255" />
+          <Property Name="Machines Model" Type="nvarchar" MaxLength="255" />
+          <Property Name="Total Spindles" Type="float" />
+          <Property Name="Total machine" Type="float" />
+          <Property Name="Description" Type="nvarchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="Calls">
+          <Key>
+            <PropertyRef Name="Call Id" />
+          </Key>
+          <Property Name="Call Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Call Owner Id" Type="nvarchar" MaxLength="255" />
+          <Property Name="Subject" Type="nvarchar" MaxLength="255" />
+          <Property Name="Call Type" Type="nvarchar" MaxLength="255" />
+          <Property Name="Call Purpose" Type="nvarchar" MaxLength="255" />
+          <Property Name="Contact Name" Type="nvarchar" MaxLength="255" />
+          <Property Name="What Name" Type="nvarchar" MaxLength="255" />
+          <Property Name="Related To" Type="nvarchar" MaxLength="255" />
+          <Property Name="Call Start Time" Type="float" />
+          <Property Name="Call Duration" Type="float" />
+          <Property Name="Description" Type="nvarchar" MaxLength="255" />
+          <Property Name="Call Result" Type="nvarchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="Contacts">
+          <Key>
+            <PropertyRef Name="Contact ID" />
+          </Key>
+          <Property Name="Contact ID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Last Name" Type="nvarchar" MaxLength="255" />
+          <Property Name="First Name" Type="nvarchar" MaxLength="255" />
+          <Property Name="Contact Owner ID" Type="uniqueidentifier" />
+          <Property Name="Email" Type="nvarchar" MaxLength="255" />
+          <Property Name="Company" Type="nvarchar" MaxLength="255" />
+          <Property Name="Lead Source" Type="nvarchar" MaxLength="255" />
+          <Property Name="Industry" Type="nvarchar" MaxLength="255" />
+          <Property Name="Phone" Type="nvarchar" MaxLength="255" />
+          <Property Name="Mobile" Type="nvarchar" MaxLength="255" />
+          <Property Name="Skype ID" Type="nvarchar" MaxLength="255" />
+          <Property Name="Title" Type="nvarchar" MaxLength="255" />
+          <Property Name="Mailing Street" Type="nvarchar" MaxLength="255" />
+          <Property Name="Mailing City" Type="nvarchar" MaxLength="255" />
+          <Property Name="Mailing State" Type="nvarchar" MaxLength="255" />
+          <Property Name="Date of Birth" Type="nvarchar" MaxLength="255" />
+          <Property Name="Mailing Zip" Type="float" />
+          <Property Name="Twitter" Type="nvarchar" MaxLength="255" />
+          <Property Name="Description" Type="nvarchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="Events">
+          <Key>
+            <PropertyRef Name="Event ID" />
+          </Key>
+          <Property Name="Event ID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Event Owner ID" Type="uniqueidentifier" />
+          <Property Name="Title" Type="nvarchar" MaxLength="255" />
+          <Property Name="From" Type="datetime" />
+          <Property Name="To" Type="datetime" />
+          <Property Name="Location" Type="nvarchar" MaxLength="255" />
+          <Property Name="Who Id" Type="nvarchar" MaxLength="255" />
+          <Property Name="Contact Name" Type="nvarchar" MaxLength="255" />
+          <Property Name="What Name" Type="nvarchar" MaxLength="255" />
+          <Property Name="Related To" Type="nvarchar" MaxLength="255" />
+          <Property Name="Send Notification Email" Type="bit" Nullable="false" />
+          <Property Name="Description" Type="nvarchar" MaxLength="255" />
+          <Property Name="All day" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Leads">
+          <Key>
+            <PropertyRef Name="Lead ID" />
+          </Key>
+          <Property Name="Lead ID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Title" Type="nvarchar" MaxLength="255" />
+          <Property Name="Last Name" Type="nvarchar" MaxLength="255" />
+          <Property Name="First Name" Type="nvarchar" MaxLength="255" />
+          <Property Name="Lead Owner ID" Type="uniqueidentifier" />
+          <Property Name="Email" Type="nvarchar" MaxLength="255" />
+          <Property Name="Company" Type="nvarchar" MaxLength="255" />
+          <Property Name="Lead Source" Type="nvarchar" MaxLength="255" />
+          <Property Name="Industry" Type="nvarchar" MaxLength="255" />
+          <Property Name="Lead Status" Type="nvarchar" MaxLength="255" />
+          <Property Name="Phone" Type="nvarchar" MaxLength="255" />
+          <Property Name="Mobile" Type="nvarchar" MaxLength="255" />
+          <Property Name="Website" Type="nvarchar" MaxLength="255" />
+          <Property Name="No# of Employees" Type="float" />
+          <Property Name="Annual Revenue" Type="float" />
+          <Property Name="Skype ID" Type="nvarchar" MaxLength="255" />
+          <Property Name="Salutation" Type="nvarchar" MaxLength="255" />
+          <Property Name="Street" Type="nvarchar" MaxLength="255" />
+          <Property Name="City" Type="nvarchar" MaxLength="255" />
+          <Property Name="Country" Type="nvarchar" MaxLength="255" />
+          <Property Name="State" Type="nvarchar" MaxLength="255" />
+          <Property Name="Zip Code" Type="float" />
+          <Property Name="Twitter" Type="nvarchar" MaxLength="255" />
+          <Property Name="Description" Type="nvarchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="Notes">
+          <Key>
+            <PropertyRef Name="Note ID" />
+          </Key>
+          <Property Name="Note ID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Note Owner ID" Type="uniqueidentifier" />
+          <Property Name="Note Title" Type="nvarchar" MaxLength="255" />
+          <Property Name="Note Content" Type="nvarchar" MaxLength="255" />
+          <Property Name="Parent ID" Type="uniqueidentifier" />
+          <Property Name="Created by ID" Type="uniqueidentifier" />
+          <Property Name="Modified by ID" Type="uniqueidentifier" />
+          <Property Name="Created Time" Type="datetime" />
+          <Property Name="Modified Time" Type="datetime" />
+          <Property Name="Description" Type="nvarchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="Potentials">
+          <Key>
+            <PropertyRef Name="Deal ID" />
+          </Key>
+          <Property Name="Deal ID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Deal Name" Type="nvarchar" MaxLength="255" />
+          <Property Name="Deal Owner ID" Type="nvarchar" MaxLength="255" />
+          <Property Name="Created by ID" Type="nvarchar" MaxLength="255" />
+          <Property Name="Modified by ID" Type="nvarchar" MaxLength="255" />
+          <Property Name="Created Time" Type="datetime" />
+          <Property Name="Modified Time" Type="datetime" />
+          <Property Name="Amount" Type="float" />
+          <Property Name="Closing Date" Type="date" />
+          <Property Name="Account ID" Type="uniqueidentifier" />
+          <Property Name="Type" Type="nvarchar" MaxLength="255" />
+          <Property Name="Stage" Type="nvarchar" MaxLength="255" />
+          <Property Name="Probability (%)" Type="float" />
+          <Property Name="Sales Cycle Duration" Type="float" />
+          <Property Name="Overall Sales Duration" Type="float" />
+          <Property Name="Expected Revenue" Type="float" />
+          <Property Name="Contact ID" Type="uniqueidentifier" />
+        </EntityType>
+        <EntityType Name="Product">
+          <Key>
+            <PropertyRef Name="Product_id" />
+          </Key>
+          <Property Name="Product_id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="255" />
+          <Property Name="Product description" Type="nvarchar" MaxLength="255" />
+          <Property Name="Product price" Type="float" />
+          <Property Name="Cost of goods sold" Type="float" />
+          <Property Name="ProductType" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="states">
+          <Key>
+            <PropertyRef Name="State_Code" />
+          </Key>
+          <Property Name="State_Code" Type="float" Nullable="false" />
+          <Property Name="State Name" Type="nvarchar" MaxLength="255" />
+          <Property Name="Country Code" Type="float" />
+          <Property Name="Country" Type="nvarchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="Tasks">
+          <Key>
+            <PropertyRef Name="Task ID" />
+          </Key>
+          <Property Name="Task ID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Task Owner ID" Type="uniqueidentifier" />
+          <Property Name="Subject" Type="nvarchar" MaxLength="255" />
+          <Property Name="Due Date" Type="float" />
+          <Property Name="Contact Name" Type="nvarchar" MaxLength="255" />
+          <Property Name="Related To" Type="nvarchar" MaxLength="255" />
+          <Property Name="Status" Type="nvarchar" MaxLength="255" />
+          <Property Name="Priority" Type="nvarchar" MaxLength="255" />
+          <Property Name="Send Notification Email" Type="bit" Nullable="false" />
+          <Property Name="Description" Type="nvarchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="Users">
+          <Key>
+            <PropertyRef Name="User_id" />
+          </Key>
+          <Property Name="User_id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Role" Type="nvarchar" MaxLength="50" />
+          <Property Name="Agent" Type="nvarchar" MaxLength="50" />
+          <Property Name="First Name" Type="nvarchar" MaxLength="255" />
+          <Property Name="Last Name" Type="nvarchar" MaxLength="255" />
+          <Property Name="Email" Type="nvarchar" MaxLength="255" />
+          <Property Name="Alias" Type="nvarchar" MaxLength="255" />
+          <Property Name="Phone" Type="float" />
+          <Property Name="Mobile" Type="float" />
+          <Property Name="Fax" Type="float" />
+          <Property Name="Address" Type="nvarchar" MaxLength="300" />
+          <Property Name="Street" Type="nvarchar" MaxLength="255" />
+          <Property Name="City" Type="nvarchar" MaxLength="255" />
+          <Property Name="Country" Type="nvarchar" MaxLength="255" />
+          <Property Name="State" Type="nvarchar" MaxLength="255" />
+          <Property Name="Zip Code" Type="float" />
+          <Property Name="Description" Type="nvarchar" MaxLength="255" />
+        </EntityType>
+        <Association Name="FK_Contacts_Accounts">
+          <End Role="Accounts" Type="Self.Accounts" Multiplicity="1" />
+          <End Role="Contacts" Type="Self.Contacts" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Accounts">
+              <PropertyRef Name="Account ID" />
+            </Principal>
+            <Dependent Role="Contacts">
+              <PropertyRef Name="Contact ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Events_Accounts">
+          <End Role="Accounts" Type="Self.Accounts" Multiplicity="0..1" />
+          <End Role="Events" Type="Self.Events" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Accounts">
+              <PropertyRef Name="Account ID" />
+            </Principal>
+            <Dependent Role="Events">
+              <PropertyRef Name="Event Owner ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Leads_Users">
+          <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+          <End Role="Leads" Type="Self.Leads" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="User_id" />
+            </Principal>
+            <Dependent Role="Leads">
+              <PropertyRef Name="Lead Owner ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Potentials_Accounts">
+          <End Role="Accounts" Type="Self.Accounts" Multiplicity="0..1" />
+          <End Role="Potentials" Type="Self.Potentials" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Accounts">
+              <PropertyRef Name="Account ID" />
+            </Principal>
+            <Dependent Role="Potentials">
+              <PropertyRef Name="Account ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Tasks_Accounts">
+          <End Role="Accounts" Type="Self.Accounts" Multiplicity="0..1" />
+          <End Role="Tasks" Type="Self.Tasks" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Accounts">
+              <PropertyRef Name="Account ID" />
+            </Principal>
+            <Dependent Role="Tasks">
+              <PropertyRef Name="Task Owner ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="crmModelStoreContainer">
+          <EntitySet Name="Accounts" EntityType="Self.Accounts" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Calls" EntityType="Self.Calls" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Contacts" EntityType="Self.Contacts" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Events" EntityType="Self.Events" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Leads" EntityType="Self.Leads" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Notes" EntityType="Self.Notes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Potentials" EntityType="Self.Potentials" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Product" EntityType="Self.Product" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="states" EntityType="Self.states" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tasks" EntityType="Self.Tasks" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Contacts_Accounts" Association="Self.FK_Contacts_Accounts">
+            <End Role="Accounts" EntitySet="Accounts" />
+            <End Role="Contacts" EntitySet="Contacts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Events_Accounts" Association="Self.FK_Events_Accounts">
+            <End Role="Accounts" EntitySet="Accounts" />
+            <End Role="Events" EntitySet="Events" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Leads_Users" Association="Self.FK_Leads_Users">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="Leads" EntitySet="Leads" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Potentials_Accounts" Association="Self.FK_Potentials_Accounts">
+            <End Role="Accounts" EntitySet="Accounts" />
+            <End Role="Potentials" EntitySet="Potentials" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Tasks_Accounts" Association="Self.FK_Tasks_Accounts">
+            <End Role="Accounts" EntitySet="Accounts" />
+            <End Role="Tasks" EntitySet="Tasks" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="crmModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="crmEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Calls" EntityType="crmModel.Call" />
+          <EntitySet Name="Contacts" EntityType="crmModel.Contact" />
+          <EntitySet Name="Leads" EntityType="crmModel.Lead" />
+          <EntitySet Name="Notes" EntityType="crmModel.Note" />
+          <EntitySet Name="Potentials" EntityType="crmModel.Potential" />
+          <EntitySet Name="Products" EntityType="crmModel.Product" />
+          <EntitySet Name="states" EntityType="crmModel.state" />
+          <EntitySet Name="Tasks" EntityType="crmModel.Task" />
+          <EntitySet Name="Events" EntityType="crmModel.Event" />
+          <EntitySet Name="Accounts" EntityType="crmModel.Account" />
+          <EntitySet Name="Users" EntityType="crmModel.User" />
+          <AssociationSet Name="FK_Contacts_Accounts" Association="crmModel.FK_Contacts_Accounts">
+            <End Role="Account" EntitySet="Accounts" />
+            <End Role="Contact" EntitySet="Contacts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Events_Accounts" Association="crmModel.FK_Events_Accounts">
+            <End Role="Account" EntitySet="Accounts" />
+            <End Role="Event" EntitySet="Events" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Potentials_Accounts" Association="crmModel.FK_Potentials_Accounts">
+            <End Role="Account" EntitySet="Accounts" />
+            <End Role="Potential" EntitySet="Potentials" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Tasks_Accounts" Association="crmModel.FK_Tasks_Accounts">
+            <End Role="Account" EntitySet="Accounts" />
+            <End Role="Task" EntitySet="Tasks" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Leads_Users" Association="crmModel.FK_Leads_Users">
+            <End Role="User" EntitySet="Users" />
+            <End Role="Lead" EntitySet="Leads" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Call">
+          <Key>
+            <PropertyRef Name="Call_Id" />
+          </Key>
+          <Property Name="Call_Id" Type="Guid" Nullable="false" />
+          <Property Name="Call_Owner_Id" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Subject" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Call_Type" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Call_Purpose" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Contact_Name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="What_Name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Related_To" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Call_Start_Time" Type="Double" />
+          <Property Name="Call_Duration" Type="Double" />
+          <Property Name="Description" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Call_Result" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Contact">
+          <Key>
+            <PropertyRef Name="Contact_ID" />
+          </Key>
+          <Property Name="Contact_ID" Type="Guid" Nullable="false" />
+          <Property Name="Last_Name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="First_Name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Contact_Owner_ID" Type="Guid" />
+          <Property Name="Email" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Company" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Lead_Source" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Industry" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Phone" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Mobile" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Skype_ID" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Title" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Mailing_Street" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Mailing_City" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Mailing_State" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Date_of_Birth" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Mailing_Zip" Type="Double" />
+          <Property Name="Twitter" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Account" Relationship="crmModel.FK_Contacts_Accounts" FromRole="Contact" ToRole="Account" />
+        </EntityType>
+        <EntityType Name="Lead">
+          <Key>
+            <PropertyRef Name="Lead_ID" />
+          </Key>
+          <Property Name="Lead_ID" Type="Guid" Nullable="false" />
+          <Property Name="Title" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Last_Name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="First_Name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Lead_Owner_ID" Type="Guid" />
+          <Property Name="Email" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Company" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Lead_Source" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Industry" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Lead_Status" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Phone" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Mobile" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Website" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="No__of_Employees" Type="Double" />
+          <Property Name="Annual_Revenue" Type="Double" />
+          <Property Name="Skype_ID" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Salutation" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Street" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="City" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Country" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="State" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Zip_Code" Type="Double" />
+          <Property Name="Twitter" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="User" Relationship="crmModel.FK_Leads_Users" FromRole="Lead" ToRole="User" />
+        </EntityType>
+        <EntityType Name="Note">
+          <Key>
+            <PropertyRef Name="Note_ID" />
+          </Key>
+          <Property Name="Note_ID" Type="Guid" Nullable="false" />
+          <Property Name="Note_Owner_ID" Type="Guid" />
+          <Property Name="Note_Title" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Note_Content" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Parent_ID" Type="Guid" />
+          <Property Name="Created_by_ID" Type="Guid" />
+          <Property Name="Modified_by_ID" Type="Guid" />
+          <Property Name="Created_Time" Type="DateTime" Precision="3" />
+          <Property Name="Modified_Time" Type="DateTime" Precision="3" />
+          <Property Name="Description" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Potential">
+          <Key>
+            <PropertyRef Name="Deal_ID" />
+          </Key>
+          <Property Name="Deal_ID" Type="Guid" Nullable="false" />
+          <Property Name="Deal_Name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Deal_Owner_ID" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Created_by_ID" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Modified_by_ID" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Created_Time" Type="DateTime" Precision="3" />
+          <Property Name="Modified_Time" Type="DateTime" Precision="3" />
+          <Property Name="Amount" Type="Double" />
+          <Property Name="Closing_Date" Type="DateTime" Precision="0" />
+          <Property Name="Account_ID" Type="Guid" />
+          <Property Name="Type" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Stage" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Probability____" Type="Double" />
+          <Property Name="Sales_Cycle_Duration" Type="Double" />
+          <Property Name="Overall_Sales_Duration" Type="Double" />
+          <Property Name="Expected_Revenue" Type="Double" />
+          <Property Name="Contact_ID" Type="Guid" />
+          <NavigationProperty Name="Account" Relationship="crmModel.FK_Potentials_Accounts" FromRole="Potential" ToRole="Account" />
+        </EntityType>
+        <EntityType Name="Product">
+          <Key>
+            <PropertyRef Name="Product_id" />
+          </Key>
+          <Property Name="Product_id" Type="Guid" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Product_description" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Product_price" Type="Double" />
+          <Property Name="Cost_of_goods_sold" Type="Double" />
+          <Property Name="ProductType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="state">
+          <Key>
+            <PropertyRef Name="State_Code" />
+          </Key>
+          <Property Name="State_Code" Type="Double" Nullable="false" />
+          <Property Name="State_Name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Country_Code" Type="Double" />
+          <Property Name="Country" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Task">
+          <Key>
+            <PropertyRef Name="Task_ID" />
+          </Key>
+          <Property Name="Task_ID" Type="Guid" Nullable="false" />
+          <Property Name="Task_Owner_ID" Type="Guid" />
+          <Property Name="Subject" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Due_Date" Type="Double" />
+          <Property Name="Contact_Name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Related_To" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Status" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Priority" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Send_Notification_Email" Type="Boolean" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Account" Relationship="crmModel.FK_Tasks_Accounts" FromRole="Task" ToRole="Account" />
+        </EntityType>
+        <EntityType Name="Event">
+          <Key>
+            <PropertyRef Name="Event_ID" />
+          </Key>
+          <Property Name="Event_ID" Type="Guid" Nullable="false" />
+          <Property Name="Event_Owner_ID" Type="Guid" />
+          <Property Name="Title" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="From" Type="DateTime" Precision="3" />
+          <Property Name="To" Type="DateTime" Precision="3" />
+          <Property Name="Location" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Who_Id" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Contact_Name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="What_Name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Related_To" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Send_Notification_Email" Type="Boolean" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="All_day" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Account" Relationship="crmModel.FK_Events_Accounts" FromRole="Event" ToRole="Account" />
+        </EntityType>
+        <EntityType Name="Account">
+          <Key>
+            <PropertyRef Name="Account_ID" />
+          </Key>
+          <Property Name="Account_ID" Type="Guid" Nullable="false" />
+          <Property Name="Account_Name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Phone" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Account_Type" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Ownership" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Industry" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Employees" Type="Double" />
+          <Property Name="Annual_Revenue" Type="Double" />
+          <Property Name="Billing_Street" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Billing_City" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Billing_Country" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Billing_State" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Machines_Model" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Total_Spindles" Type="Double" />
+          <Property Name="Total_machine" Type="Double" />
+          <Property Name="Description" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Contact" Relationship="crmModel.FK_Contacts_Accounts" FromRole="Account" ToRole="Contact" />
+          <NavigationProperty Name="Events" Relationship="crmModel.FK_Events_Accounts" FromRole="Account" ToRole="Event" />
+          <NavigationProperty Name="Potentials" Relationship="crmModel.FK_Potentials_Accounts" FromRole="Account" ToRole="Potential" />
+          <NavigationProperty Name="Tasks" Relationship="crmModel.FK_Tasks_Accounts" FromRole="Account" ToRole="Task" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="User_id" />
+          </Key>
+          <Property Name="User_id" Type="Guid" Nullable="false" />
+          <Property Name="Role" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Agent" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="First_Name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Last_Name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Alias" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Phone" Type="Double" />
+          <Property Name="Mobile" Type="Double" />
+          <Property Name="Fax" Type="Double" />
+          <Property Name="Address" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Name="Street" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="City" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Country" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="State" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Zip_Code" Type="Double" />
+          <Property Name="Description" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Leads" Relationship="crmModel.FK_Leads_Users" FromRole="User" ToRole="Lead" />
+        </EntityType>
+        <Association Name="FK_Contacts_Accounts">
+          <End Type="crmModel.Account" Role="Account" Multiplicity="1" />
+          <End Type="crmModel.Contact" Role="Contact" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Account">
+              <PropertyRef Name="Account_ID" />
+            </Principal>
+            <Dependent Role="Contact">
+              <PropertyRef Name="Contact_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Events_Accounts">
+          <End Type="crmModel.Account" Role="Account" Multiplicity="0..1" />
+          <End Type="crmModel.Event" Role="Event" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Account">
+              <PropertyRef Name="Account_ID" />
+            </Principal>
+            <Dependent Role="Event">
+              <PropertyRef Name="Event_Owner_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Potentials_Accounts">
+          <End Type="crmModel.Account" Role="Account" Multiplicity="0..1" />
+          <End Type="crmModel.Potential" Role="Potential" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Account">
+              <PropertyRef Name="Account_ID" />
+            </Principal>
+            <Dependent Role="Potential">
+              <PropertyRef Name="Account_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Tasks_Accounts">
+          <End Type="crmModel.Account" Role="Account" Multiplicity="0..1" />
+          <End Type="crmModel.Task" Role="Task" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Account">
+              <PropertyRef Name="Account_ID" />
+            </Principal>
+            <Dependent Role="Task">
+              <PropertyRef Name="Task_Owner_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Leads_Users">
+          <End Type="crmModel.User" Role="User" Multiplicity="0..1" />
+          <End Type="crmModel.Lead" Role="Lead" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="User_id" />
+            </Principal>
+            <Dependent Role="Lead">
+              <PropertyRef Name="Lead_Owner_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="crmModelStoreContainer" CdmEntityContainer="crmEntities">
+          <EntitySetMapping Name="Calls">
+            <EntityTypeMapping TypeName="crmModel.Call">
+              <MappingFragment StoreEntitySet="Calls">
+                <ScalarProperty Name="Call_Result" ColumnName="Call Result" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Call_Duration" ColumnName="Call Duration" />
+                <ScalarProperty Name="Call_Start_Time" ColumnName="Call Start Time" />
+                <ScalarProperty Name="Related_To" ColumnName="Related To" />
+                <ScalarProperty Name="What_Name" ColumnName="What Name" />
+                <ScalarProperty Name="Contact_Name" ColumnName="Contact Name" />
+                <ScalarProperty Name="Call_Purpose" ColumnName="Call Purpose" />
+                <ScalarProperty Name="Call_Type" ColumnName="Call Type" />
+                <ScalarProperty Name="Subject" ColumnName="Subject" />
+                <ScalarProperty Name="Call_Owner_Id" ColumnName="Call Owner Id" />
+                <ScalarProperty Name="Call_Id" ColumnName="Call Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Contacts">
+            <EntityTypeMapping TypeName="crmModel.Contact">
+              <MappingFragment StoreEntitySet="Contacts">
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Twitter" ColumnName="Twitter" />
+                <ScalarProperty Name="Mailing_Zip" ColumnName="Mailing Zip" />
+                <ScalarProperty Name="Date_of_Birth" ColumnName="Date of Birth" />
+                <ScalarProperty Name="Mailing_State" ColumnName="Mailing State" />
+                <ScalarProperty Name="Mailing_City" ColumnName="Mailing City" />
+                <ScalarProperty Name="Mailing_Street" ColumnName="Mailing Street" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Skype_ID" ColumnName="Skype ID" />
+                <ScalarProperty Name="Mobile" ColumnName="Mobile" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="Industry" ColumnName="Industry" />
+                <ScalarProperty Name="Lead_Source" ColumnName="Lead Source" />
+                <ScalarProperty Name="Company" ColumnName="Company" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Contact_Owner_ID" ColumnName="Contact Owner ID" />
+                <ScalarProperty Name="First_Name" ColumnName="First Name" />
+                <ScalarProperty Name="Last_Name" ColumnName="Last Name" />
+                <ScalarProperty Name="Contact_ID" ColumnName="Contact ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Leads">
+            <EntityTypeMapping TypeName="crmModel.Lead">
+              <MappingFragment StoreEntitySet="Leads">
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Twitter" ColumnName="Twitter" />
+                <ScalarProperty Name="Zip_Code" ColumnName="Zip Code" />
+                <ScalarProperty Name="State" ColumnName="State" />
+                <ScalarProperty Name="Country" ColumnName="Country" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="Street" ColumnName="Street" />
+                <ScalarProperty Name="Salutation" ColumnName="Salutation" />
+                <ScalarProperty Name="Skype_ID" ColumnName="Skype ID" />
+                <ScalarProperty Name="Annual_Revenue" ColumnName="Annual Revenue" />
+                <ScalarProperty Name="No__of_Employees" ColumnName="No# of Employees" />
+                <ScalarProperty Name="Website" ColumnName="Website" />
+                <ScalarProperty Name="Mobile" ColumnName="Mobile" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="Lead_Status" ColumnName="Lead Status" />
+                <ScalarProperty Name="Industry" ColumnName="Industry" />
+                <ScalarProperty Name="Lead_Source" ColumnName="Lead Source" />
+                <ScalarProperty Name="Company" ColumnName="Company" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Lead_Owner_ID" ColumnName="Lead Owner ID" />
+                <ScalarProperty Name="First_Name" ColumnName="First Name" />
+                <ScalarProperty Name="Last_Name" ColumnName="Last Name" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Lead_ID" ColumnName="Lead ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Notes">
+            <EntityTypeMapping TypeName="crmModel.Note">
+              <MappingFragment StoreEntitySet="Notes">
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Modified_Time" ColumnName="Modified Time" />
+                <ScalarProperty Name="Created_Time" ColumnName="Created Time" />
+                <ScalarProperty Name="Modified_by_ID" ColumnName="Modified by ID" />
+                <ScalarProperty Name="Created_by_ID" ColumnName="Created by ID" />
+                <ScalarProperty Name="Parent_ID" ColumnName="Parent ID" />
+                <ScalarProperty Name="Note_Content" ColumnName="Note Content" />
+                <ScalarProperty Name="Note_Title" ColumnName="Note Title" />
+                <ScalarProperty Name="Note_Owner_ID" ColumnName="Note Owner ID" />
+                <ScalarProperty Name="Note_ID" ColumnName="Note ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Potentials">
+            <EntityTypeMapping TypeName="crmModel.Potential">
+              <MappingFragment StoreEntitySet="Potentials">
+                <ScalarProperty Name="Contact_ID" ColumnName="Contact ID" />
+                <ScalarProperty Name="Expected_Revenue" ColumnName="Expected Revenue" />
+                <ScalarProperty Name="Overall_Sales_Duration" ColumnName="Overall Sales Duration" />
+                <ScalarProperty Name="Sales_Cycle_Duration" ColumnName="Sales Cycle Duration" />
+                <ScalarProperty Name="Probability____" ColumnName="Probability (%)" />
+                <ScalarProperty Name="Stage" ColumnName="Stage" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="Account_ID" ColumnName="Account ID" />
+                <ScalarProperty Name="Closing_Date" ColumnName="Closing Date" />
+                <ScalarProperty Name="Amount" ColumnName="Amount" />
+                <ScalarProperty Name="Modified_Time" ColumnName="Modified Time" />
+                <ScalarProperty Name="Created_Time" ColumnName="Created Time" />
+                <ScalarProperty Name="Modified_by_ID" ColumnName="Modified by ID" />
+                <ScalarProperty Name="Created_by_ID" ColumnName="Created by ID" />
+                <ScalarProperty Name="Deal_Owner_ID" ColumnName="Deal Owner ID" />
+                <ScalarProperty Name="Deal_Name" ColumnName="Deal Name" />
+                <ScalarProperty Name="Deal_ID" ColumnName="Deal ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Products">
+            <EntityTypeMapping TypeName="crmModel.Product">
+              <MappingFragment StoreEntitySet="Product">
+                <ScalarProperty Name="ProductType" ColumnName="ProductType" />
+                <ScalarProperty Name="Cost_of_goods_sold" ColumnName="Cost of goods sold" />
+                <ScalarProperty Name="Product_price" ColumnName="Product price" />
+                <ScalarProperty Name="Product_description" ColumnName="Product description" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Product_id" ColumnName="Product_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="states">
+            <EntityTypeMapping TypeName="crmModel.state">
+              <MappingFragment StoreEntitySet="states">
+                <ScalarProperty Name="Country" ColumnName="Country" />
+                <ScalarProperty Name="Country_Code" ColumnName="Country Code" />
+                <ScalarProperty Name="State_Name" ColumnName="State Name" />
+                <ScalarProperty Name="State_Code" ColumnName="State_Code" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tasks">
+            <EntityTypeMapping TypeName="crmModel.Task">
+              <MappingFragment StoreEntitySet="Tasks">
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Send_Notification_Email" ColumnName="Send Notification Email" />
+                <ScalarProperty Name="Priority" ColumnName="Priority" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Related_To" ColumnName="Related To" />
+                <ScalarProperty Name="Contact_Name" ColumnName="Contact Name" />
+                <ScalarProperty Name="Due_Date" ColumnName="Due Date" />
+                <ScalarProperty Name="Subject" ColumnName="Subject" />
+                <ScalarProperty Name="Task_Owner_ID" ColumnName="Task Owner ID" />
+                <ScalarProperty Name="Task_ID" ColumnName="Task ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Events">
+            <EntityTypeMapping TypeName="crmModel.Event">
+              <MappingFragment StoreEntitySet="Events">
+                <ScalarProperty Name="All_day" ColumnName="All day" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Send_Notification_Email" ColumnName="Send Notification Email" />
+                <ScalarProperty Name="Related_To" ColumnName="Related To" />
+                <ScalarProperty Name="What_Name" ColumnName="What Name" />
+                <ScalarProperty Name="Contact_Name" ColumnName="Contact Name" />
+                <ScalarProperty Name="Who_Id" ColumnName="Who Id" />
+                <ScalarProperty Name="Location" ColumnName="Location" />
+                <ScalarProperty Name="To" ColumnName="To" />
+                <ScalarProperty Name="From" ColumnName="From" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Event_Owner_ID" ColumnName="Event Owner ID" />
+                <ScalarProperty Name="Event_ID" ColumnName="Event ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Accounts">
+            <EntityTypeMapping TypeName="crmModel.Account">
+              <MappingFragment StoreEntitySet="Accounts">
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Total_machine" ColumnName="Total machine" />
+                <ScalarProperty Name="Total_Spindles" ColumnName="Total Spindles" />
+                <ScalarProperty Name="Machines_Model" ColumnName="Machines Model" />
+                <ScalarProperty Name="Billing_State" ColumnName="Billing State" />
+                <ScalarProperty Name="Billing_Country" ColumnName="Billing Country" />
+                <ScalarProperty Name="Billing_City" ColumnName="Billing City" />
+                <ScalarProperty Name="Billing_Street" ColumnName="Billing Street" />
+                <ScalarProperty Name="Annual_Revenue" ColumnName="Annual Revenue" />
+                <ScalarProperty Name="Employees" ColumnName="Employees" />
+                <ScalarProperty Name="Industry" ColumnName="Industry" />
+                <ScalarProperty Name="Ownership" ColumnName="Ownership" />
+                <ScalarProperty Name="Account_Type" ColumnName="Account Type" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="Account_Name" ColumnName="Account Name" />
+                <ScalarProperty Name="Account_ID" ColumnName="Account ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="crmModel.User">
+              <MappingFragment StoreEntitySet="Users">
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Zip_Code" ColumnName="Zip Code" />
+                <ScalarProperty Name="State" ColumnName="State" />
+                <ScalarProperty Name="Country" ColumnName="Country" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="Street" ColumnName="Street" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Fax" ColumnName="Fax" />
+                <ScalarProperty Name="Mobile" ColumnName="Mobile" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="Alias" ColumnName="Alias" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Last_Name" ColumnName="Last Name" />
+                <ScalarProperty Name="First_Name" ColumnName="First Name" />
+                <ScalarProperty Name="Agent" ColumnName="Agent" />
+                <ScalarProperty Name="Role" ColumnName="Role" />
+                <ScalarProperty Name="User_id" ColumnName="User_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

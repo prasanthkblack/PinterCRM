@@ -1,0 +1,171 @@
+﻿@model PinterCRM.Areas.CRM.Models.Contact
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/CRM/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Contact</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Last_Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Last_Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.First_Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.First_Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Contact_Owner_ID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Contact_Owner_ID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Company)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Company)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Lead_Source)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Lead_Source)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Industry)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Industry)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Phone)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Phone)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Mobile)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Mobile)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Skype_ID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Skype_ID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Title)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Title)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Mailing_Street)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Mailing_Street)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Mailing_City)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Mailing_City)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Mailing_State)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Mailing_State)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Date_of_Birth)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Date_of_Birth)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Mailing_Zip)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Mailing_Zip)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Twitter)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Twitter)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Account.Account_Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Account.Account_Name)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Contact_ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="2f76e51a40ef4e6dbdbc063ec9227eb0" Name="Diagram1" ZoomLevel="98">
+        <EntityTypeShape EntityType="crmModel.Call" Width="1.5" PointX="0.75" PointY="0.75" />
+        <EntityTypeShape EntityType="crmModel.Contact" Width="1.5" PointX="5.25" PointY="7.25" />
+        <EntityTypeShape EntityType="crmModel.Lead" Width="1.5" PointX="3" PointY="21.25" />
+        <EntityTypeShape EntityType="crmModel.Note" Width="1.5" PointX="7.75" PointY="0.75" />
+        <EntityTypeShape EntityType="crmModel.Potential" Width="1.5" PointX="5.25" PointY="2.125" />
+        <EntityTypeShape EntityType="crmModel.Product" Width="1.5" PointX="7.75" PointY="4.75" />
+        <EntityTypeShape EntityType="crmModel.state" Width="1.5" PointX="0.75" PointY="5.75" />
+        <EntityTypeShape EntityType="crmModel.Task" Width="1.5" PointX="5.25" PointY="12.875" />
+        <EntityTypeShape EntityType="crmModel.Event" Width="1.5" PointX="5.25" PointY="17.25" />
+        <EntityTypeShape EntityType="crmModel.Account" Width="1.5" PointX="3" PointY="9.125" />
+        <EntityTypeShape EntityType="crmModel.User" Width="1.5" PointX="0.75" PointY="21.875" />
+        <AssociationConnector Association="crmModel.FK_Contacts_Accounts" />
+        <AssociationConnector Association="crmModel.FK_Events_Accounts" />
+        <AssociationConnector Association="crmModel.FK_Potentials_Accounts" />
+        <AssociationConnector Association="crmModel.FK_Tasks_Accounts" />
+        <AssociationConnector Association="crmModel.FK_Leads_Users" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

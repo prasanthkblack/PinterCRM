@@ -1,0 +1,91 @@
+﻿@model PinterCRM.Areas.CRM.Models.Task
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/CRM/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Task</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Subject)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Subject)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Due_Date)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Due_Date)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Contact_Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Contact_Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Related_To)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Related_To)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Status)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Status)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Priority)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Priority)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Send_Notification_Email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Send_Notification_Email)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Account.Account_Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Account.Account_Name)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Task_ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

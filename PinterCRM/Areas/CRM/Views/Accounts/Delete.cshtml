@@ -1,0 +1,153 @@
+﻿@model PinterCRM.Areas.CRM.Models.Account
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Areas/CRM/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Account</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Account_Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Account_Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Phone)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Phone)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Account_Type)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Account_Type)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Ownership)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Ownership)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Industry)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Industry)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Employees)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Employees)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Annual_Revenue)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Annual_Revenue)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Billing_Street)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Billing_Street)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Billing_City)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Billing_City)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Billing_Country)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Billing_Country)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Billing_State)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Billing_State)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Machines_Model)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Machines_Model)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Total_Spindles)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Total_Spindles)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Total_machine)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Total_machine)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Contact.Last_Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Contact.Last_Name)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

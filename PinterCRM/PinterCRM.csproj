@@ -45,10 +45,18 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -120,6 +128,64 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Areas\CRM\Controllers\AccountsController.cs" />
+    <Compile Include="Areas\CRM\Controllers\ContactsController.cs" />
+    <Compile Include="Areas\CRM\Controllers\EventsController.cs" />
+    <Compile Include="Areas\CRM\Controllers\LeadsController.cs" />
+    <Compile Include="Areas\CRM\Controllers\NotesController.cs" />
+    <Compile Include="Areas\CRM\Controllers\PotentialsController.cs" />
+    <Compile Include="Areas\CRM\Controllers\ProductsController.cs" />
+    <Compile Include="Areas\CRM\Controllers\TasksController.cs" />
+    <Compile Include="Areas\CRM\Controllers\UsersController.cs" />
+    <Compile Include="Areas\CRM\CRMAreaRegistration.cs" />
+    <Compile Include="Areas\CRM\Models\Account.cs">
+      <DependentUpon>Dbmodel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\CRM\Models\Call.cs">
+      <DependentUpon>Dbmodel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\CRM\Models\Contact.cs">
+      <DependentUpon>Dbmodel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\CRM\Models\Dbmodel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Dbmodel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\CRM\Models\Dbmodel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Dbmodel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\CRM\Models\Dbmodel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Dbmodel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\CRM\Models\Event.cs">
+      <DependentUpon>Dbmodel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\CRM\Models\Lead.cs">
+      <DependentUpon>Dbmodel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\CRM\Models\Note.cs">
+      <DependentUpon>Dbmodel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\CRM\Models\Potential.cs">
+      <DependentUpon>Dbmodel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\CRM\Models\Product.cs">
+      <DependentUpon>Dbmodel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\CRM\Models\state.cs">
+      <DependentUpon>Dbmodel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\CRM\Models\Task.cs">
+      <DependentUpon>Dbmodel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\CRM\Models\User.cs">
+      <DependentUpon>Dbmodel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -127,6 +193,16 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Areas\CRM\Models\Dbmodel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Dbmodel.Context.cs</LastGenOutput>
+      <DependentUpon>Dbmodel.edmx</DependentUpon>
+    </Content>
+    <Content Include="Areas\CRM\Models\Dbmodel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Dbmodel.edmx</DependentUpon>
+      <LastGenOutput>Dbmodel.cs</LastGenOutput>
+    </Content>
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
@@ -137,6 +213,59 @@
     <Content Include="Content\Site.css" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Areas\CRM\Views\web.config" />
+    <EntityDeploy Include="Areas\CRM\Models\Dbmodel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Dbmodel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Areas\CRM\Models\Dbmodel.edmx.diagram">
+      <DependentUpon>Dbmodel.edmx</DependentUpon>
+    </Content>
+    <Content Include="Areas\CRM\Views\Contacts\Create.cshtml" />
+    <Content Include="Areas\CRM\Views\Contacts\Delete.cshtml" />
+    <Content Include="Areas\CRM\Views\Contacts\Details.cshtml" />
+    <Content Include="Areas\CRM\Views\Contacts\Edit.cshtml" />
+    <Content Include="Areas\CRM\Views\Contacts\Index.cshtml" />
+    <Content Include="Areas\CRM\Views\Tasks\Create.cshtml" />
+    <Content Include="Areas\CRM\Views\Tasks\Delete.cshtml" />
+    <Content Include="Areas\CRM\Views\Tasks\Details.cshtml" />
+    <Content Include="Areas\CRM\Views\Tasks\Edit.cshtml" />
+    <Content Include="Areas\CRM\Views\Tasks\Index.cshtml" />
+    <Content Include="Areas\CRM\Views\Events\Create.cshtml" />
+    <Content Include="Areas\CRM\Views\Events\Delete.cshtml" />
+    <Content Include="Areas\CRM\Views\Events\Details.cshtml" />
+    <Content Include="Areas\CRM\Views\Events\Edit.cshtml" />
+    <Content Include="Areas\CRM\Views\Events\Index.cshtml" />
+    <Content Include="Areas\CRM\Views\Users\Create.cshtml" />
+    <Content Include="Areas\CRM\Views\Users\Delete.cshtml" />
+    <Content Include="Areas\CRM\Views\Users\Details.cshtml" />
+    <Content Include="Areas\CRM\Views\Users\Edit.cshtml" />
+    <Content Include="Areas\CRM\Views\Users\Index.cshtml" />
+    <Content Include="Areas\CRM\Views\Accounts\Create.cshtml" />
+    <Content Include="Areas\CRM\Views\Accounts\Delete.cshtml" />
+    <Content Include="Areas\CRM\Views\Accounts\Details.cshtml" />
+    <Content Include="Areas\CRM\Views\Accounts\Edit.cshtml" />
+    <Content Include="Areas\CRM\Views\Accounts\Index.cshtml" />
+    <Content Include="Areas\CRM\Views\Notes\Create.cshtml" />
+    <Content Include="Areas\CRM\Views\Notes\Delete.cshtml" />
+    <Content Include="Areas\CRM\Views\Notes\Details.cshtml" />
+    <Content Include="Areas\CRM\Views\Notes\Edit.cshtml" />
+    <Content Include="Areas\CRM\Views\Notes\Index.cshtml" />
+    <Content Include="Areas\CRM\Views\Leads\Create.cshtml" />
+    <Content Include="Areas\CRM\Views\Leads\Delete.cshtml" />
+    <Content Include="Areas\CRM\Views\Leads\Details.cshtml" />
+    <Content Include="Areas\CRM\Views\Leads\Edit.cshtml" />
+    <Content Include="Areas\CRM\Views\Leads\Index.cshtml" />
+    <Content Include="Areas\CRM\Views\Potentials\Create.cshtml" />
+    <Content Include="Areas\CRM\Views\Potentials\Delete.cshtml" />
+    <Content Include="Areas\CRM\Views\Potentials\Details.cshtml" />
+    <Content Include="Areas\CRM\Views\Potentials\Edit.cshtml" />
+    <Content Include="Areas\CRM\Views\Potentials\Index.cshtml" />
+    <Content Include="Areas\CRM\Views\Products\Create.cshtml" />
+    <Content Include="Areas\CRM\Views\Products\Delete.cshtml" />
+    <Content Include="Areas\CRM\Views\Products\Details.cshtml" />
+    <Content Include="Areas\CRM\Views\Products\Edit.cshtml" />
+    <Content Include="Areas\CRM\Views\Products\Index.cshtml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
@@ -158,7 +287,7 @@
     <Content Include="Views\Web.config" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
-    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\CRM\Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
@@ -179,6 +308,9 @@
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-3.3.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.3.1.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

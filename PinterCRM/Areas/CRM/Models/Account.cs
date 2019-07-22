@@ -20,6 +20,7 @@ namespace PinterCRM.Areas.CRM.Models
             this.Events = new HashSet<Event>();
             this.Potentials = new HashSet<Potential>();
             this.Tasks = new HashSet<Task>();
+            this.Contacts = new HashSet<Contact>();
         }
     
         public System.Guid Account_ID { get; set; }
@@ -46,5 +47,7 @@ namespace PinterCRM.Areas.CRM.Models
         public virtual ICollection<Potential> Potentials { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Task> Tasks { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Contact> Contacts { get; set; }
     }
 }

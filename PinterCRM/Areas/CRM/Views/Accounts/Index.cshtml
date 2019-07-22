@@ -5,120 +5,166 @@
     Layout = "~/Areas/CRM/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Index</h2>
+<h2>Company Details</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Account_Name)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Phone)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Account_Type)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Ownership)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Industry)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Employees)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Annual_Revenue)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Billing_Street)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Billing_City)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Billing_Country)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Billing_State)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Machines_Model)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Total_Spindles)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Total_machine)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Description)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Contact.Last_Name)
-        </th>
-        <th></th>
-    </tr>
+<div class="row">
+    <div class="col-md-12">
+        <p>
+            @Html.ActionLink("Create New", "Create", null, new { @class = "btn btn-success fa fa-plus" })
+        </p>
+        <table id="mytable" class="table table-striped table-bordered nowrap" style="width:100%">
+            <thead>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Account_Name)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Phone)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Account_Type)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Ownership)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Industry)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Employees)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Annual_Revenue)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Billing_Street)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Billing_City)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Billing_Country)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Billing_State)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Machines_Model)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Total_Spindles)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Total_machine)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Description)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Contact.Last_Name)
+                    </th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Account_Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Phone)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Account_Type)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Ownership)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Industry)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Employees)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Annual_Revenue)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Billing_Street)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Billing_City)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Billing_Country)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Billing_State)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Machines_Model)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Total_Spindles)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Total_machine)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Description)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Contact.Last_Name)
+                    </td>
+                    <td>
+                        <div class="btn-group" role="group" aria-label="Basic example">
+                            @Html.ActionLink("Edit", "Edit", new { id = item.Account_ID }, new { @class = "btn btn-primary fa fa-plus" })
+                            @Html.ActionLink("Details", "Details", new { id = item.Account_ID }, new { @class = "btn btn-info fa fa-info" })
+                            @Html.ActionLink("Delete", "Delete", new { id = item.Account_ID }, new { @class = "btn btn-danger fa fa-minus" })
+                        </div>
+                    </td>
+                </tr>
+                }
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Account_Name)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Phone)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Account_Type)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Ownership)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Industry)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Employees)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Annual_Revenue)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Billing_Street)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Billing_City)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Billing_Country)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Billing_State)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Machines_Model)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Total_Spindles)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Total_machine)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Description)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Contact.Last_Name)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.Account_ID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.Account_ID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.Account_ID })
-        </td>
-    </tr>
+        </table>
+    </div>
+
+</div>
+
+
+
+
+
+@section Scripts{
+
+    <script>
+        $(document).ready(function () {
+            // $("#mytable").dataTable();
+
+            var table = $('#mytable').DataTable({
+                responsive: {
+                    details: {
+                        display: $.fn.dataTable.Responsive.display.modal({
+                            header: function (row) {
+                                var data = row.data();
+                                return 'Details for ' + data[0] + ' ' + data[1];
+                            }
+                        }),
+                        renderer: $.fn.dataTable.Responsive.renderer.tableAll({
+                            tableClass: 'table'
+                        })
+                    }
+                }
+            }
+
+            );
+
+            //table.columns([5,6,7,8,9,10,11,12,13,14,15]).visible(false, false);
+            //table.columns.adjust().draw(false); // adjust column sizing and redraw
+
+
+        });
+    </script>
 }
-
-</table>

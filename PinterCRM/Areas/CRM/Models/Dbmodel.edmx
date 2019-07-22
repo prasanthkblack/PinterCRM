@@ -209,14 +209,14 @@
           <Property Name="Description" Type="nvarchar" MaxLength="255" />
         </EntityType>
         <Association Name="FK_Contacts_Accounts">
-          <End Role="Accounts" Type="Self.Accounts" Multiplicity="1" />
-          <End Role="Contacts" Type="Self.Contacts" Multiplicity="0..1" />
+          <End Role="Accounts" Type="Self.Accounts" Multiplicity="0..1" />
+          <End Role="Contacts" Type="Self.Contacts" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Accounts">
               <PropertyRef Name="Account ID" />
             </Principal>
             <Dependent Role="Contacts">
-              <PropertyRef Name="Contact ID" />
+              <PropertyRef Name="Contact Owner ID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -337,6 +337,10 @@
             <End Role="User" EntitySet="Users" />
             <End Role="Lead" EntitySet="Leads" />
           </AssociationSet>
+          <AssociationSet Name="FK_Contacts_Accounts1" Association="crmModel.FK_Contacts_Accounts1">
+            <End Role="Account" EntitySet="Accounts" />
+            <End Role="Contact" EntitySet="Contacts" />
+          </AssociationSet>
         </EntityContainer>
         <EntityType Name="Call">
           <Key>
@@ -379,6 +383,7 @@
           <Property Name="Twitter" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
           <Property Name="Description" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Account" Relationship="crmModel.FK_Contacts_Accounts" FromRole="Contact" ToRole="Account" />
+          <NavigationProperty Name="Account1" Relationship="crmModel.FK_Contacts_Accounts1" FromRole="Contact" ToRole="Account" />
         </EntityType>
         <EntityType Name="Lead">
           <Key>
@@ -527,6 +532,7 @@
           <NavigationProperty Name="Events" Relationship="crmModel.FK_Events_Accounts" FromRole="Account" ToRole="Event" />
           <NavigationProperty Name="Potentials" Relationship="crmModel.FK_Potentials_Accounts" FromRole="Account" ToRole="Potential" />
           <NavigationProperty Name="Tasks" Relationship="crmModel.FK_Tasks_Accounts" FromRole="Account" ToRole="Task" />
+          <NavigationProperty Name="Contacts" Relationship="crmModel.FK_Contacts_Accounts1" FromRole="Account" ToRole="Contact" />
         </EntityType>
         <EntityType Name="User">
           <Key>
@@ -608,6 +614,18 @@
             </Principal>
             <Dependent Role="Lead">
               <PropertyRef Name="Lead_Owner_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Contacts_Accounts1">
+          <End Type="crmModel.Account" Role="Account" Multiplicity="0..1" />
+          <End Type="crmModel.Contact" Role="Contact" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Account">
+              <PropertyRef Name="Account_ID" />
+            </Principal>
+            <Dependent Role="Contact">
+              <PropertyRef Name="Contact_Owner_ID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>

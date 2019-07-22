@@ -21,6 +21,7 @@
         <AssociationConnector Association="crmModel.FK_Potentials_Accounts" />
         <AssociationConnector Association="crmModel.FK_Tasks_Accounts" />
         <AssociationConnector Association="crmModel.FK_Leads_Users" />
+        <AssociationConnector Association="crmModel.FK_Contacts_Accounts1" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

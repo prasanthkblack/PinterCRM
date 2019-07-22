@@ -221,11 +221,6 @@
     <Content Include="Areas\CRM\Models\Dbmodel.edmx.diagram">
       <DependentUpon>Dbmodel.edmx</DependentUpon>
     </Content>
-    <Content Include="Areas\CRM\Views\Contacts\Create.cshtml" />
-    <Content Include="Areas\CRM\Views\Contacts\Delete.cshtml" />
-    <Content Include="Areas\CRM\Views\Contacts\Details.cshtml" />
-    <Content Include="Areas\CRM\Views\Contacts\Edit.cshtml" />
-    <Content Include="Areas\CRM\Views\Contacts\Index.cshtml" />
     <Content Include="Areas\CRM\Views\Tasks\Create.cshtml" />
     <Content Include="Areas\CRM\Views\Tasks\Delete.cshtml" />
     <Content Include="Areas\CRM\Views\Tasks\Details.cshtml" />
@@ -266,6 +261,12 @@
     <Content Include="Areas\CRM\Views\Products\Details.cshtml" />
     <Content Include="Areas\CRM\Views\Products\Edit.cshtml" />
     <Content Include="Areas\CRM\Views\Products\Index.cshtml" />
+    <Content Include="Areas\CRM\Views\Contacts\Create.cshtml" />
+    <Content Include="Areas\CRM\Views\Contacts\Delete.cshtml" />
+    <Content Include="Areas\CRM\Views\Contacts\Details.cshtml" />
+    <Content Include="Areas\CRM\Views\Contacts\Edit.cshtml" />
+    <Content Include="Areas\CRM\Views\Contacts\Index.cshtml" />
+    <Content Include="Areas\CRM\Views\Accounts\Home.cshtml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />

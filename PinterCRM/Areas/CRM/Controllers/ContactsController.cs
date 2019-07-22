@@ -17,7 +17,7 @@ namespace PinterCRM.Areas.CRM.Controllers
         // GET: CRM/Contacts
         public ActionResult Index()
         {
-            var contacts = db.Contacts.Include(c => c.Account);
+            var contacts = db.Contacts.Include(c => c.Account).Include(c => c.Account1);
             return View(contacts.ToList());
         }
 
@@ -40,6 +40,7 @@ namespace PinterCRM.Areas.CRM.Controllers
         public ActionResult Create()
         {
             ViewBag.Contact_ID = new SelectList(db.Accounts, "Account_ID", "Account_Name");
+            ViewBag.Contact_Owner_ID = new SelectList(db.Accounts, "Account_ID", "Account_Name");
             return View();
         }
 
@@ -59,6 +60,7 @@ namespace PinterCRM.Areas.CRM.Controllers
             }
 
             ViewBag.Contact_ID = new SelectList(db.Accounts, "Account_ID", "Account_Name", contact.Contact_ID);
+            ViewBag.Contact_Owner_ID = new SelectList(db.Accounts, "Account_ID", "Account_Name", contact.Contact_Owner_ID);
             return View(contact);
         }
 
@@ -75,6 +77,7 @@ namespace PinterCRM.Areas.CRM.Controllers
                 return HttpNotFound();
             }
             ViewBag.Contact_ID = new SelectList(db.Accounts, "Account_ID", "Account_Name", contact.Contact_ID);
+            ViewBag.Contact_Owner_ID = new SelectList(db.Accounts, "Account_ID", "Account_Name", contact.Contact_Owner_ID);
             return View(contact);
         }
 
@@ -92,6 +95,7 @@ namespace PinterCRM.Areas.CRM.Controllers
                 return RedirectToAction("Index");
             }
             ViewBag.Contact_ID = new SelectList(db.Accounts, "Account_ID", "Account_Name", contact.Contact_ID);
+            ViewBag.Contact_Owner_ID = new SelectList(db.Accounts, "Account_ID", "Account_Name", contact.Contact_Owner_ID);
             return View(contact);
         }
 

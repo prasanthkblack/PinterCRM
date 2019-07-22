@@ -20,6 +20,12 @@ namespace PinterCRM.Areas.CRM.Controllers
             var accounts = db.Accounts.Include(a => a.Contact);
             return View(accounts.ToList());
         }
+        public ActionResult Home()
+        {
+            var accounts = db.Accounts.Include(a => a.Contact);
+            return View(accounts.ToList());
+        }
+
 
         // GET: CRM/Accounts/Details/5
         public ActionResult Details(Guid? id)

@@ -132,6 +132,8 @@
     <Compile Include="Areas\CRM\Controllers\ContactsController.cs" />
     <Compile Include="Areas\CRM\Controllers\EventsController.cs" />
     <Compile Include="Areas\CRM\Controllers\LeadsController.cs" />
+    <Compile Include="Areas\CRM\Controllers\machinedetailsController.cs" />
+    <Compile Include="Areas\CRM\Controllers\MachinesController.cs" />
     <Compile Include="Areas\CRM\Controllers\NotesController.cs" />
     <Compile Include="Areas\CRM\Controllers\PotentialsController.cs" />
     <Compile Include="Areas\CRM\Controllers\ProductsController.cs" />
@@ -166,6 +168,12 @@
       <DependentUpon>Dbmodel.tt</DependentUpon>
     </Compile>
     <Compile Include="Areas\CRM\Models\Lead.cs">
+      <DependentUpon>Dbmodel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\CRM\Models\Machine.cs">
+      <DependentUpon>Dbmodel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\CRM\Models\machinedetail.cs">
       <DependentUpon>Dbmodel.tt</DependentUpon>
     </Compile>
     <Compile Include="Areas\CRM\Models\Note.cs">
@@ -231,11 +239,6 @@
     <Content Include="Areas\CRM\Views\Events\Details.cshtml" />
     <Content Include="Areas\CRM\Views\Events\Edit.cshtml" />
     <Content Include="Areas\CRM\Views\Events\Index.cshtml" />
-    <Content Include="Areas\CRM\Views\Users\Create.cshtml" />
-    <Content Include="Areas\CRM\Views\Users\Delete.cshtml" />
-    <Content Include="Areas\CRM\Views\Users\Details.cshtml" />
-    <Content Include="Areas\CRM\Views\Users\Edit.cshtml" />
-    <Content Include="Areas\CRM\Views\Users\Index.cshtml" />
     <Content Include="Areas\CRM\Views\Accounts\Create.cshtml" />
     <Content Include="Areas\CRM\Views\Accounts\Delete.cshtml" />
     <Content Include="Areas\CRM\Views\Accounts\Details.cshtml" />
@@ -267,6 +270,21 @@
     <Content Include="Areas\CRM\Views\Contacts\Edit.cshtml" />
     <Content Include="Areas\CRM\Views\Contacts\Index.cshtml" />
     <Content Include="Areas\CRM\Views\Accounts\Home.cshtml" />
+    <Content Include="Areas\CRM\Views\Machines\Create.cshtml" />
+    <Content Include="Areas\CRM\Views\Machines\Delete.cshtml" />
+    <Content Include="Areas\CRM\Views\Machines\Details.cshtml" />
+    <Content Include="Areas\CRM\Views\Machines\Edit.cshtml" />
+    <Content Include="Areas\CRM\Views\Machines\Index.cshtml" />
+    <Content Include="Areas\CRM\Views\machinedetails\Create.cshtml" />
+    <Content Include="Areas\CRM\Views\machinedetails\Delete.cshtml" />
+    <Content Include="Areas\CRM\Views\machinedetails\Details.cshtml" />
+    <Content Include="Areas\CRM\Views\machinedetails\Edit.cshtml" />
+    <Content Include="Areas\CRM\Views\machinedetails\Index.cshtml" />
+    <Content Include="Areas\CRM\Views\Users\Create.cshtml" />
+    <Content Include="Areas\CRM\Views\Users\Delete.cshtml" />
+    <Content Include="Areas\CRM\Views\Users\Details.cshtml" />
+    <Content Include="Areas\CRM\Views\Users\Edit.cshtml" />
+    <Content Include="Areas\CRM\Views\Users\Index.cshtml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />

@@ -1,0 +1,51 @@
+﻿@model PinterCRM.Areas.CRM.Models.machinedetail
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/CRM/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>machinedetail</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Spindles)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Spindles)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Account.Account_Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Account.Account_Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Machine.Model)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Machine.Model)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

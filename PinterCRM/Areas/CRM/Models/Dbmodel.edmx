@@ -114,6 +114,26 @@
           <Property Name="Twitter" Type="nvarchar" MaxLength="255" />
           <Property Name="Description" Type="nvarchar" MaxLength="255" />
         </EntityType>
+        <EntityType Name="Machine">
+          <Key>
+            <PropertyRef Name="Type_id" />
+          </Key>
+          <Property Name="Type_id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Model" Type="nvarchar" MaxLength="50" />
+          <Property Name="Company" Type="nvarchar" MaxLength="50" />
+          <Property Name="Description" Type="nvarchar" MaxLength="50" />
+          <Property Name="Show" Type="bit" />
+        </EntityType>
+        <EntityType Name="machinedetails">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="fk_Company" Type="uniqueidentifier" />
+          <Property Name="Fk_Machine" Type="uniqueidentifier" />
+          <Property Name="Spindles" Type="int" />
+          <Property Name="Description" Type="nvarchar" MaxLength="50" />
+        </EntityType>
         <EntityType Name="Notes">
           <Key>
             <PropertyRef Name="Note ID" />
@@ -196,6 +216,7 @@
           <Property Name="First Name" Type="nvarchar" MaxLength="255" />
           <Property Name="Last Name" Type="nvarchar" MaxLength="255" />
           <Property Name="Email" Type="nvarchar" MaxLength="255" />
+          <Property Name="Password" Type="nvarchar(max)" />
           <Property Name="Alias" Type="nvarchar" MaxLength="255" />
           <Property Name="Phone" Type="float" />
           <Property Name="Mobile" Type="float" />
@@ -244,6 +265,30 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_machinedetails_Accounts">
+          <End Role="Accounts" Type="Self.Accounts" Multiplicity="0..1" />
+          <End Role="machinedetails" Type="Self.machinedetails" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Accounts">
+              <PropertyRef Name="Account ID" />
+            </Principal>
+            <Dependent Role="machinedetails">
+              <PropertyRef Name="fk_Company" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_machinedetails_Machine">
+          <End Role="Machine" Type="Self.Machine" Multiplicity="0..1" />
+          <End Role="machinedetails" Type="Self.machinedetails" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Machine">
+              <PropertyRef Name="Type_id" />
+            </Principal>
+            <Dependent Role="machinedetails">
+              <PropertyRef Name="Fk_Machine" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Potentials_Accounts">
           <End Role="Accounts" Type="Self.Accounts" Multiplicity="0..1" />
           <End Role="Potentials" Type="Self.Potentials" Multiplicity="*" />
@@ -274,6 +319,8 @@
           <EntitySet Name="Contacts" EntityType="Self.Contacts" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Events" EntityType="Self.Events" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Leads" EntityType="Self.Leads" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Machine" EntityType="Self.Machine" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="machinedetails" EntityType="Self.machinedetails" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Notes" EntityType="Self.Notes" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Potentials" EntityType="Self.Potentials" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Product" EntityType="Self.Product" Schema="dbo" store:Type="Tables" />
@@ -291,6 +338,14 @@
           <AssociationSet Name="FK_Leads_Users" Association="Self.FK_Leads_Users">
             <End Role="Users" EntitySet="Users" />
             <End Role="Leads" EntitySet="Leads" />
+          </AssociationSet>
+          <AssociationSet Name="FK_machinedetails_Accounts" Association="Self.FK_machinedetails_Accounts">
+            <End Role="Accounts" EntitySet="Accounts" />
+            <End Role="machinedetails" EntitySet="machinedetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_machinedetails_Machine" Association="Self.FK_machinedetails_Machine">
+            <End Role="Machine" EntitySet="Machine" />
+            <End Role="machinedetails" EntitySet="machinedetails" />
           </AssociationSet>
           <AssociationSet Name="FK_Potentials_Accounts" Association="Self.FK_Potentials_Accounts">
             <End Role="Accounts" EntitySet="Accounts" />
@@ -316,7 +371,6 @@
           <EntitySet Name="Tasks" EntityType="crmModel.Task" />
           <EntitySet Name="Events" EntityType="crmModel.Event" />
           <EntitySet Name="Accounts" EntityType="crmModel.Account" />
-          <EntitySet Name="Users" EntityType="crmModel.User" />
           <AssociationSet Name="FK_Contacts_Accounts" Association="crmModel.FK_Contacts_Accounts">
             <End Role="Account" EntitySet="Accounts" />
             <End Role="Contact" EntitySet="Contacts" />
@@ -333,13 +387,24 @@
             <End Role="Account" EntitySet="Accounts" />
             <End Role="Task" EntitySet="Tasks" />
           </AssociationSet>
-          <AssociationSet Name="FK_Leads_Users" Association="crmModel.FK_Leads_Users">
-            <End Role="User" EntitySet="Users" />
-            <End Role="Lead" EntitySet="Leads" />
-          </AssociationSet>
           <AssociationSet Name="FK_Contacts_Accounts1" Association="crmModel.FK_Contacts_Accounts1">
             <End Role="Account" EntitySet="Accounts" />
             <End Role="Contact" EntitySet="Contacts" />
+          </AssociationSet>
+          <EntitySet Name="Machines" EntityType="crmModel.Machine" />
+          <EntitySet Name="machinedetails" EntityType="crmModel.machinedetail" />
+          <AssociationSet Name="FK_machinedetails_Accounts" Association="crmModel.FK_machinedetails_Accounts">
+            <End Role="Account" EntitySet="Accounts" />
+            <End Role="machinedetail" EntitySet="machinedetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_machinedetails_Machine" Association="crmModel.FK_machinedetails_Machine">
+            <End Role="Machine" EntitySet="Machines" />
+            <End Role="machinedetail" EntitySet="machinedetails" />
+          </AssociationSet>
+          <EntitySet Name="Users" EntityType="crmModel.User" />
+          <AssociationSet Name="FK_Leads_Users" Association="crmModel.FK_Leads_Users">
+            <End Role="User" EntitySet="Users" />
+            <End Role="Lead" EntitySet="Leads" />
           </AssociationSet>
         </EntityContainer>
         <EntityType Name="Call">
@@ -533,29 +598,7 @@
           <NavigationProperty Name="Potentials" Relationship="crmModel.FK_Potentials_Accounts" FromRole="Account" ToRole="Potential" />
           <NavigationProperty Name="Tasks" Relationship="crmModel.FK_Tasks_Accounts" FromRole="Account" ToRole="Task" />
           <NavigationProperty Name="Contacts" Relationship="crmModel.FK_Contacts_Accounts1" FromRole="Account" ToRole="Contact" />
-        </EntityType>
-        <EntityType Name="User">
-          <Key>
-            <PropertyRef Name="User_id" />
-          </Key>
-          <Property Name="User_id" Type="Guid" Nullable="false" />
-          <Property Name="Role" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Agent" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="First_Name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
-          <Property Name="Last_Name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
-          <Property Name="Email" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
-          <Property Name="Alias" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
-          <Property Name="Phone" Type="Double" />
-          <Property Name="Mobile" Type="Double" />
-          <Property Name="Fax" Type="Double" />
-          <Property Name="Address" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
-          <Property Name="Street" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
-          <Property Name="City" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
-          <Property Name="Country" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
-          <Property Name="State" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
-          <Property Name="Zip_Code" Type="Double" />
-          <Property Name="Description" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Leads" Relationship="crmModel.FK_Leads_Users" FromRole="User" ToRole="Lead" />
+          <NavigationProperty Name="machinedetails" Relationship="crmModel.FK_machinedetails_Accounts" FromRole="Account" ToRole="machinedetail" />
         </EntityType>
         <Association Name="FK_Contacts_Accounts">
           <End Type="crmModel.Account" Role="Account" Multiplicity="1" />
@@ -605,18 +648,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Leads_Users">
-          <End Type="crmModel.User" Role="User" Multiplicity="0..1" />
-          <End Type="crmModel.Lead" Role="Lead" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="User">
-              <PropertyRef Name="User_id" />
-            </Principal>
-            <Dependent Role="Lead">
-              <PropertyRef Name="Lead_Owner_ID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_Contacts_Accounts1">
           <End Type="crmModel.Account" Role="Account" Multiplicity="0..1" />
           <End Type="crmModel.Contact" Role="Contact" Multiplicity="*" />
@@ -626,6 +657,89 @@
             </Principal>
             <Dependent Role="Contact">
               <PropertyRef Name="Contact_Owner_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Machine">
+          <Key>
+            <PropertyRef Name="Type_id" />
+          </Key>
+          <Property Name="Type_id" Type="Guid" Nullable="false" />
+          <Property Name="Model" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Company" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Show" Type="Boolean" />
+          <NavigationProperty Name="machinedetails" Relationship="crmModel.FK_machinedetails_Machine" FromRole="Machine" ToRole="machinedetail" />
+        </EntityType>
+        <EntityType Name="machinedetail">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="fk_Company" Type="Guid" />
+          <Property Name="Fk_Machine" Type="Guid" />
+          <Property Name="Spindles" Type="Int32" />
+          <Property Name="Description" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Account" Relationship="crmModel.FK_machinedetails_Accounts" FromRole="machinedetail" ToRole="Account" />
+          <NavigationProperty Name="Machine" Relationship="crmModel.FK_machinedetails_Machine" FromRole="machinedetail" ToRole="Machine" />
+        </EntityType>
+        <Association Name="FK_machinedetails_Accounts">
+          <End Type="crmModel.Account" Role="Account" Multiplicity="0..1" />
+          <End Type="crmModel.machinedetail" Role="machinedetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Account">
+              <PropertyRef Name="Account_ID" />
+            </Principal>
+            <Dependent Role="machinedetail">
+              <PropertyRef Name="fk_Company" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_machinedetails_Machine">
+          <End Type="crmModel.Machine" Role="Machine" Multiplicity="0..1" />
+          <End Type="crmModel.machinedetail" Role="machinedetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Machine">
+              <PropertyRef Name="Type_id" />
+            </Principal>
+            <Dependent Role="machinedetail">
+              <PropertyRef Name="Fk_Machine" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="User_id" />
+          </Key>
+          <Property Name="User_id" Type="Guid" Nullable="false" />
+          <Property Name="Role" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Agent" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="First_Name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Last_Name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Password" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Alias" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Phone" Type="Double" />
+          <Property Name="Mobile" Type="Double" />
+          <Property Name="Fax" Type="Double" />
+          <Property Name="Address" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Name="Street" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="City" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Country" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="State" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Zip_Code" Type="Double" />
+          <Property Name="Description" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Leads" Relationship="crmModel.FK_Leads_Users" FromRole="User" ToRole="Lead" />
+        </EntityType>
+        <Association Name="FK_Leads_Users">
+          <End Type="crmModel.User" Role="User" Multiplicity="0..1" />
+          <End Type="crmModel.Lead" Role="Lead" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="User_id" />
+            </Principal>
+            <Dependent Role="Lead">
+              <PropertyRef Name="Lead_Owner_ID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -826,6 +940,28 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="Machines">
+            <EntityTypeMapping TypeName="crmModel.Machine">
+              <MappingFragment StoreEntitySet="Machine">
+                <ScalarProperty Name="Show" ColumnName="Show" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Company" ColumnName="Company" />
+                <ScalarProperty Name="Model" ColumnName="Model" />
+                <ScalarProperty Name="Type_id" ColumnName="Type_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="machinedetails">
+            <EntityTypeMapping TypeName="crmModel.machinedetail">
+              <MappingFragment StoreEntitySet="machinedetails">
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Spindles" ColumnName="Spindles" />
+                <ScalarProperty Name="Fk_Machine" ColumnName="Fk_Machine" />
+                <ScalarProperty Name="fk_Company" ColumnName="fk_Company" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="Users">
             <EntityTypeMapping TypeName="crmModel.User">
               <MappingFragment StoreEntitySet="Users">
@@ -840,6 +976,7 @@
                 <ScalarProperty Name="Mobile" ColumnName="Mobile" />
                 <ScalarProperty Name="Phone" ColumnName="Phone" />
                 <ScalarProperty Name="Alias" ColumnName="Alias" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
                 <ScalarProperty Name="Email" ColumnName="Email" />
                 <ScalarProperty Name="Last_Name" ColumnName="Last Name" />
                 <ScalarProperty Name="First_Name" ColumnName="First Name" />

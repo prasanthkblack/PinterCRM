@@ -35,6 +35,8 @@ namespace PinterCRM.Areas.CRM.Models
         public virtual DbSet<Task> Tasks { get; set; }
         public virtual DbSet<Event> Events { get; set; }
         public virtual DbSet<Account> Accounts { get; set; }
+        public virtual DbSet<Machine> Machines { get; set; }
+        public virtual DbSet<machinedetail> machinedetails { get; set; }
         public virtual DbSet<User> Users { get; set; }
     }
 }

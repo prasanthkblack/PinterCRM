@@ -26,6 +26,7 @@ namespace PinterCRM.Areas.CRM.Models
         public string First_Name { get; set; }
         public string Last_Name { get; set; }
         public string Email { get; set; }
+        public string Password { get; set; }
         public string Alias { get; set; }
         public Nullable<double> Phone { get; set; }
         public Nullable<double> Mobile { get; set; }

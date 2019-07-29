@@ -27,15 +27,15 @@
                     <th>
                         @Html.DisplayNameFor(model => model.Ownership)
                     </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.Industry)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.Employees)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.Annual_Revenue)
-                    </th>
+                    @*<th>
+                            @Html.DisplayNameFor(model => model.Industry)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Employees)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Annual_Revenue)
+                        </th>*@
                     <th>
                         @Html.DisplayNameFor(model => model.Billing_Street)
                     </th>
@@ -69,63 +69,63 @@
             <tbody>
                 @foreach (var item in Model)
                 {
-                <tr>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Account_Name)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Phone)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Account_Type)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Ownership)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Industry)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Employees)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Annual_Revenue)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Billing_Street)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Billing_City)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Billing_Country)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Billing_State)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Machines_Model)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Total_Spindles)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Total_machine)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Description)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Contact.Last_Name)
-                    </td>
-                    <td>
-                        <div class="btn-group" role="group" aria-label="Basic example">
-                            @Html.ActionLink("Edit", "Edit", new { id = item.Account_ID }, new { @class = "btn btn-primary fa fa-plus" })
-                            @Html.ActionLink("Details", "Details", new { id = item.Account_ID }, new { @class = "btn btn-info fa fa-info" })
-                            @Html.ActionLink("Delete", "Delete", new { id = item.Account_ID }, new { @class = "btn btn-danger fa fa-minus" })
-                        </div>
-                    </td>
-                </tr>
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Account_Name)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Phone)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Account_Type)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Ownership)
+                        </td>
+                        @*<td>
+                                @Html.DisplayFor(modelItem => item.Industry)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Employees)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Annual_Revenue)
+                            </td>*@
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Billing_Street)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Billing_City)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Billing_Country)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Billing_State)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Machines_Model)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Total_Spindles)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Total_machine)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Description)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Contact.Last_Name)
+                        </td>
+                        <td>
+                            <div class="btn-group" role="group" aria-label="Basic example">
+                                @Html.ActionLink("Edit", "Edit", new { id = item.Account_ID }, new { @class = "btn btn-primary fa fa-plus" })
+                                @Html.ActionLink("Details", "Details", new { id = item.Account_ID }, new { @class = "btn btn-info fa fa-info" })
+                                @Html.ActionLink("Delete", "Delete", new { id = item.Account_ID }, new { @class = "btn btn-danger fa fa-minus" })
+                            </div>
+                        </td>
+                    </tr>
                 }
 
         </table>
@@ -134,11 +134,8 @@
 </div>
 
 
-
-
-
-@section Scripts{
-
+@section Scripts
+    {
     <script>
         $(document).ready(function () {
             // $("#mytable").dataTable();

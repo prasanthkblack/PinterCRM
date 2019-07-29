@@ -10,108 +10,108 @@ using PinterCRM.Areas.CRM.Models;
 
 namespace PinterCRM.Areas.CRM.Controllers
 {
-    public class UsersController : Controller
+    public class MachinesController : Controller
     {
         private crmEntities db = new crmEntities();
 
-        // GET: CRM/Users
+        // GET: CRM/Machines
         public ActionResult Index()
         {
-            return View(db.Users.ToList());
+            return View(db.Machines.ToList());
         }
 
-        // GET: CRM/Users/Details/5
+        // GET: CRM/Machines/Details/5
         public ActionResult Details(Guid? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            User user = db.Users.Find(id);
-            if (user == null)
+            Machine machine = db.Machines.Find(id);
+            if (machine == null)
             {
                 return HttpNotFound();
             }
-            return View(user);
+            return View(machine);
         }
 
-        // GET: CRM/Users/Create
+        // GET: CRM/Machines/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: CRM/Users/Create
+        // POST: CRM/Machines/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "User_id,Role,Agent,First_Name,Last_Name,Email,Password,Alias,Phone,Mobile,Fax,Address,Street,City,Country,State,Zip_Code,Description")] User user)
+        public ActionResult Create([Bind(Include = "Type_id,Model,Company,Description,Show")] Machine machine)
         {
             if (ModelState.IsValid)
             {
-                user.User_id = Guid.NewGuid();
-                db.Users.Add(user);
+                machine.Type_id = Guid.NewGuid();
+                db.Machines.Add(machine);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(user);
+            return View(machine);
         }
 
-        // GET: CRM/Users/Edit/5
+        // GET: CRM/Machines/Edit/5
         public ActionResult Edit(Guid? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            User user = db.Users.Find(id);
-            if (user == null)
+            Machine machine = db.Machines.Find(id);
+            if (machine == null)
             {
                 return HttpNotFound();
             }
-            return View(user);
+            return View(machine);
         }
 
-        // POST: CRM/Users/Edit/5
+        // POST: CRM/Machines/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "User_id,Role,Agent,First_Name,Last_Name,Email,Password,Alias,Phone,Mobile,Fax,Address,Street,City,Country,State,Zip_Code,Description")] User user)
+        public ActionResult Edit([Bind(Include = "Type_id,Model,Company,Description,Show")] Machine machine)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(user).State = EntityState.Modified;
+                db.Entry(machine).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(user);
+            return View(machine);
         }
 
-        // GET: CRM/Users/Delete/5
+        // GET: CRM/Machines/Delete/5
         public ActionResult Delete(Guid? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            User user = db.Users.Find(id);
-            if (user == null)
+            Machine machine = db.Machines.Find(id);
+            if (machine == null)
             {
                 return HttpNotFound();
             }
-            return View(user);
+            return View(machine);
         }
 
-        // POST: CRM/Users/Delete/5
+        // POST: CRM/Machines/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(Guid id)
         {
-            User user = db.Users.Find(id);
-            db.Users.Remove(user);
+            Machine machine = db.Machines.Find(id);
+            db.Machines.Remove(machine);
             db.SaveChanges();
             return RedirectToAction("Index");
         }
